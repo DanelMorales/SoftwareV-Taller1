@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Problema 2</title>
+</head>
+<body>
+    <h2>Problema 2 — Categoría de empleado</h2>
+
+    <label>Introduce un código de 3 dígitos: </label>
+    <input type="number" id="codigo">
+    <button onclick="evaluarCodigo()">Evaluar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function evaluarCodigo() {
+            let codigo = document.getElementById("codigo").value;
+            let pares = 0;
+
+            for (let i = 0; i < codigo.length; i++) {
+                let dig = parseInt(codigo[i]);
+                if (dig % 2 === 0) pares++;
+            }
+
+            let categoria = "";
+            if (pares === 3) categoria = "Director General";
+            else if (pares === 2) categoria = "Directivo";
+            else if (pares === 1) categoria = "Staff";
+            else categoria = "Seguridad";
+
+            document.getElementById("resultado").textContent = "Categoría: " + categoria;
+        }
+    </script>
+</body>
+</html>
+

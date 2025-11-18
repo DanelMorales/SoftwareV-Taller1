@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Problema 3</title>
+</head>
+<body>
+    <h2>Problema 3 — Cálculo de la pendiente</h2>
+
+    <label>x1: </label><input type="number" id="x1"><br><br>
+    <label>y1: </label><input type="number" id="y1"><br><br>
+    <label>x2: </label><input type="number" id="x2"><br><br>
+    <label>y2: </label><input type="number" id="y2"><br><br>
+
+    <button onclick="calcularPendiente()">Calcular pendiente</button>
+
+    <p id="resultado"></p>
+
+    <script>
+      
+        function calcularPendiente() {
+            let x1 = parseFloat(document.getElementById("x1").value);
+            let y1 = parseFloat(document.getElementById("y1").value);
+            let x2 = parseFloat(document.getElementById("x2").value);
+            let y2 = parseFloat(document.getElementById("y2").value);
+
+            if (x2 === x1) {
+                document.getElementById("resultado").textContent =
+                    "La pendiente no existe (división entre cero).";
+                return;
+            }
+
+            let m = (y2 - y1) / (x2 - x1);
+            document.getElementById("resultado").textContent =
+                "La pendiente es: " + m;
+        }
+    </script>
+</body>
+</html>

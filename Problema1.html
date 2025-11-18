@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Problema 1</title>
+</head>
+<body>
+    <h2>Problema 1 — Costo de entrada al parque</h2>
+
+    <label>Ingresa tu edad: </label>
+    <input type="number" id="edad">
+    <button onclick="calcularEntrada()">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+
+        function calcularEntrada() {
+            let edad = parseInt(document.getElementById("edad").value);
+            let precio = "";
+
+            if (edad > 1 && edad < 4) precio = "Gratis";
+            else if (edad >= 4 && edad <= 8) precio = "$2";
+            else if (edad >= 9 && edad <= 16) precio = "$5";
+            else if (edad >= 17 && edad <= 35) precio = "$7";
+            else if (edad > 35) precio = "$10";
+            else precio = "Edad inválida";
+
+            document.getElementById("resultado").textContent = "Costo de entrada: " + precio;
+        }
+    </script>
+</body>
+</html>

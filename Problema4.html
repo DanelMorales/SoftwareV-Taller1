@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Problema 4</title>
+</head>
+<body>
+    <h2>Problema 4 — Estado del clima</h2>
+
+    <label>Temperatura (°C): </label>
+    <input type="number" id="temp"><br><br>
+
+    <label>Humedad (%): </label>
+    <input type="number" id="hum"><br><br>
+
+    <button onclick="evaluarClima()">Evaluar clima</button>
+
+    <p id="resultado"></p>
+
+    <script>
+   
+        function evaluarClima() {
+            let t = parseFloat(document.getElementById("temp").value);
+            let h = parseFloat(document.getElementById("hum").value);
+            let res = "";
+
+            if (t < 10) res = "Clima frío";
+            else if (t >= 10 && t <= 25) {
+                if (h < 60) res = "Clima templado y seco";
+                else res = "Clima templado y húmedo";
+            }
+            else if (t >= 26 && t <= 35) res = "Clima cálido";
+            else if (t > 35) res = "Clima caluroso extremo, mantente hidratado";
+            else res = "Valores fuera de rango, verifica los datos";
+
+            document.getElementById("resultado").textContent = res;
+        }
+    </script>
+</body>
+</html>
